@@ -1,0 +1,29 @@
+<header>
+  <div class="container">
+    <ul class="main-nav">
+      <li><a href="#">home</a></li>
+      <li><a href="#new">new sheet</a></li>
+    </ul>
+  </div>
+</header>
+
+<main role="main">
+  <div class="container">
+    <div id="main"></div>
+  </div>
+</main>
+
+<script id="sheet-list-item-template" type="text/template">
+
+  <h2><a href="#sheet-{{= sheet.id }}">{{= sheet.name }}</a></h2>
+</script>
+
+<script id="sheet-detail-template" type="text/template">
+  <div class="sheet-detail">
+    <div class="sheet-meta">
+      <input class="sheet-name" type="text" value="{{= sheet.name }}"><br>
+      <textarea class="sheet-description">{{= sheet.description }}</textarea><br>
+    </div>
+  </div>
+  <div class="sheet-rows"></div>
+</script>

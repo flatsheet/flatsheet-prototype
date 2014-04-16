@@ -1,0 +1,229 @@
+// Place all the styles related to the sheets controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+html,
+body,
+input,
+button,
+select,
+textarea {
+  font: 16px/1.2 "Helvetica Neue", Helvetica, arial, sans-serif;
+  color: #444;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  font-weight: 300;
+}
+
+html, body {
+  margin: 0px;
+  padding: 0px;
+  height: 100%;
+}
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0px;
+  font-weight: 300;
+  line-height: 1.5;
+}
+
+a {
+  color: #3c80c3;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:active,
+a:focus {
+  color: #1e4062;
+}
+
+pre,
+code {
+  font-family: Monaco, Menlo, monospace;
+  padding: 5px 10px;
+  background-color: #f8f8f8;
+  border: 1px solid #e2e2e2;
+  overflow: scroll;
+}
+
+hr {
+  border-top: 1px solid #e2e2e2;
+  border-right: none;
+  border-bottom: none;
+  border-left: none;
+  margin: 10px 0 30px 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+button,
+.button,
+input[type="submit"] {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, sans-serif;
+  background-color: #1388A0;
+  color: #fefefa;
+  border-radius: 2px;
+  border: 1px solid #1388A0;
+  font-weight: 400;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 0px 10px;
+  height: 45px;
+  line-height: 45px;
+}
+
+button:hover,
+button:focus,
+.button:hover,
+.button:focus,
+input[type="submit"]:hover,
+input[type="submit"]:focus {
+  background-color: #0D6172;
+  border-color: #0D6172;
+  color: #fff;
+}
+
+a.button {
+  padding: 11px 10px 10px 10px;
+}
+
+header {
+  padding: 10px;
+  background-color: #f6f6f5;
+  height: 40px;
+  margin-bottom: 20px;
+}
+
+header ul.main-nav {
+  margin: 0px;
+  padding: 0px;
+
+  li {
+    display: inline-block;
+  }
+}
+
+.sheet-actions {
+  float: right;
+}
+
+.sheet-detail {
+}
+
+.sheet-meta {
+}
+
+.sheet-endpoint {
+  float: right;
+  clear: right;
+}
+
+.sheet-rows {
+  padding-top: 30px;
+  clear:both;
+  overflow-x: auto;
+
+  .controls {
+    margin-bottom: 20px;
+    background-color: #eaeaec;
+
+    button {
+      margin-left: 0px;
+      border-radius: 0px;
+    }
+  }
+
+  table { padding-top: 10px; }
+
+  th > span {
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  th button {
+    font-size: 12px;
+    padding: 0px 3px;
+    height: 20px;
+    line-height: 20px;
+    vertical-align: top;
+  }
+
+  td > input {
+    padding: 5px 8px;
+    border: 1px solid #efefef;
+  }
+}
+
+.api-endpoint {
+  display: block;
+  float: right;
+  height: 45px;
+  line-height: 45px;
+  padding: 0px 15px;
+}
+
+.sheet-name {
+  font-size: 30px;
+  border: 0px;
+  width: 100%;
+}
+
+.sheet-description {
+  font-size: 15px;
+  border: 0px;
+  width: 100%;
+}
+
+/* mobile size */
+.container {
+  width: 100%;
+  padding: 0px 10%;
+  margin: 0px auto;
+}
+
+/* tablet size */
+@media only screen and (min-width: 600px) {
+  .container {
+    width: 540px;
+    padding: 0px 20px;
+  }
+}
+/* desktop size */
+@media only screen and (min-width: 960px) {
+  .container {
+    width: 800px;
+  }
+}
+/* clearfix */
+.container:after,
+.clearfix:after {
+  content: " ";
+  display: table;
+  clear: both;
+}
+
+.container,
+.clearfix {
+  *zoom: 1;
+}

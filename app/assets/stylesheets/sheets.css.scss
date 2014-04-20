@@ -108,6 +108,23 @@ a.button {
   padding: 11px 10px 10px 10px;
 }
 
+.endpoint.button {
+  font-size: 12px;
+  padding: 2px 5px;
+  height: 20px;
+  line-height: 20px;
+  vertical-align: top;
+  background-color: #efefec;
+  color: #424240;
+  border: 1px solid #efefec;
+}
+
+.endpoint.button:hover {
+  background-color: #eaeae8;
+  color: #000;
+  border: 1px solid #eaeae8;
+}
+
 header {
   padding: 10px;
   background-color: #f6f6f5;
@@ -156,12 +173,11 @@ header ul.main-nav {
 
   table { padding-top: 10px; }
 
-  th > span {
-    display: block;
-    margin-bottom: 5px;
+  th > div.small {
+    width: 200px;
   }
 
-  th button {
+  th .icon {
     font-size: 12px;
     padding: 0px 3px;
     height: 20px;
@@ -172,6 +188,36 @@ header ul.main-nav {
   td > input {
     padding: 5px 8px;
     border: 1px solid #efefef;
+    width: 160px;
+    display: inline-block;
+    margin: 0px;
+  }
+
+  td > span.expand {
+    background-color: #efefec;
+    display: inline-block;
+    width: 31px;
+    height: 31px;
+    cursor: pointer;
+    margin: 0px;
+    vertical-align: top;
+  }
+}
+
+.cell-editor {
+  width: 90%;
+  margin: 5%;
+  position: fixed;
+  top: 5%;
+  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 20px;
+  border: 1px solid #f2f2f0;
+
+  textarea {
+    width: 100%;
+    border: 1px solid #e9e9e7;
+    padding: 20px;
   }
 }
 
@@ -195,26 +241,28 @@ header ul.main-nav {
   width: 100%;
 }
 
+.list-item {
+  border-bottom: 1px solid #f2f2f0;
+  padding-bottom: 8px;
+  margin-bottom: 12px;
+}
+
 /* mobile size */
 .container {
-  width: 100%;
-  padding: 0px 10%;
+  width: 90%;
   margin: 0px auto;
 }
 
 /* tablet size */
 @media only screen and (min-width: 600px) {
-  .container {
-    width: 540px;
-    padding: 0px 20px;
-  }
+
 }
+
 /* desktop size */
 @media only screen and (min-width: 960px) {
-  .container {
-    width: 800px;
-  }
+
 }
+
 /* clearfix */
 .container:after,
 .clearfix:after {

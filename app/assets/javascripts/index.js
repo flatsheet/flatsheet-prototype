@@ -103,11 +103,12 @@ var SheetDetailView = Backbone.View.extend({
 
   events: {
     'click .save': 'save',
-    'click .add-row': 'addRow'
+    'click .add-row': 'addRow',
+    'click .expand': 'expand'
   },
 
   save: function(e){
-    e.preventDefault();
+    if (e) e.preventDefault();
 
     var attrs = {
       name: $('.sheet-name').val(),
@@ -137,6 +138,11 @@ var SheetDetailView = Backbone.View.extend({
     return false;
   },
 
+  expand: function(e){
+    var $input = $(e.target).parent().find('input');
+    var editor = new CellEditor($input, this, e.target);
+  },
+
   renderRows: function(){
     var self = this;
     var rows = this.model.get('rows');
@@ -150,14 +156,23 @@ var SheetDetailView = Backbone.View.extend({
             rows[i] = row;
             self.model.set({ rows: rows });
             var p = self.model.get('rows')
-            console.log('rows', p)
+            console.log('change happened')
           })
           .on('rowfocus', function(row, i) {
-            console.log('rowfocus', row, i);
+
           })
       );
-    $('.controls').append('<button class="add-row button">new row</button>');
-    $('.controls').append('<button class="save button">save</button>');
+
+    var $cells = $('.sheet-rows table td')
+//
+    //$cells.each(function(a, b, c){
+    //  var span = document.createElement('span');
+    //  span.className = 'expand';
+    //  $(this).append(span);
+    //});
+
+    $('.controls').append('<a href="#" class="add-row button">new row</a>');
+    $('.controls').append('<a href="#" class="save button">save</a>');
 
     if (this.model.get('id')){
       var endpoint = document.createElement('a');
@@ -174,6 +189,44 @@ var SheetDetailView = Backbone.View.extend({
     $('#main').html(html);
     this.renderRows();
     return this;
+  }
+});
+
+var CellEditor = Backbone.View.extend({
+  tagName: 'div',
+  className: 'cell-editor',
+
+  initialize: function($input, detailView, target){
+    this.$input = $input;
+    this.detailView = detailView;
+
+    var parent = target.parentNode;
+    this.inputEl = parent.firstElementChild;
+    console.log(this.inputEl)
+    this.template = _.template( $('#cell-editor-template').html() );
+    this.render();
+  },
+
+  events: {
+    'click .update': 'update'
+  },
+
+  update: function(e){
+    var text = $(e.target).parent().find('textarea').val();
+    this.$input.val(text);
+    this.$input.trigger('change');
+    
+    var event = new Event('change');
+    this.inputEl.addEventListener('change', function (e) {}, false);
+    this.inputEl.dispatchEvent(event);
+    this.detailView.save();
+
+    this.$el.remove();
+  },
+
+  render: function($input){
+    var html = this.template({ text: this.$input.val(), field: this.$input.attr('field') });
+    $('body').append(this.$el.html(html));
   }
 });
 

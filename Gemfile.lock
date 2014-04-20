@@ -44,10 +44,18 @@ GEM
       warden (~> 1.2.3)
     erubis (2.7.0)
     execjs (2.0.2)
+    faraday (0.9.0)
+      multipart-post (>= 1.2, < 3)
     font-awesome-rails (4.0.3.1)
       railties (>= 3.2, < 5.0)
     friendly_id (5.0.1)
       activerecord (~> 4.0.0)
+    google-spreadsheet-ruby (0.3.1)
+      google_drive (>= 0.3.0)
+    google_drive (0.3.8)
+      nokogiri (>= 1.4.4, != 1.5.2, != 1.5.1)
+      oauth (>= 0.3.6)
+      oauth2 (>= 0.5.0)
     haml (4.0.5)
       tilt
     hike (1.2.3)
@@ -61,6 +69,8 @@ GEM
     jquery-ui-rails (4.2.0)
       railties (>= 3.2.16)
     json (1.8.1)
+    jwt (0.1.11)
+      multi_json (>= 1.5)
     kaminari (0.15.1)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
@@ -71,9 +81,18 @@ GEM
     mini_portile (0.5.3)
     minitest (4.7.5)
     multi_json (1.9.2)
+    multi_xml (0.5.5)
+    multipart-post (2.0.0)
     nested_form (0.3.2)
     nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
+    oauth (0.4.7)
+    oauth2 (0.9.3)
+      faraday (>= 0.8, < 0.10)
+      jwt (~> 0.1.8)
+      multi_json (~> 1.3)
+      multi_xml (~> 0.5)
+      rack (~> 1.2)
     orm_adapter (0.5.0)
     pg (0.17.1)
     polyglot (0.3.4)
@@ -91,6 +110,9 @@ GEM
       bundler (>= 1.3.0, < 2.0)
       railties (= 4.0.4)
       sprockets-rails (~> 2.0.0)
+    rails_12factor (0.0.2)
+      rails_serve_static_assets
+      rails_stdout_logging
     rails_admin (0.6.2)
       builder (~> 3.1)
       coffee-rails (~> 4.0)
@@ -105,6 +127,8 @@ GEM
       remotipart (~> 1.0)
       safe_yaml (~> 1.0)
       sass-rails (~> 4.0)
+    rails_serve_static_assets (0.0.2)
+    rails_stdout_logging (0.0.3)
     railties (4.0.4)
       actionpack (= 4.0.4)
       activesupport (= 4.0.4)
@@ -112,6 +136,12 @@ GEM
       thor (>= 0.18.1, < 2.0)
     rake (10.2.2)
     remotipart (1.2.1)
+    roo (1.13.2)
+      nokogiri
+      rubyzip
+      spreadsheet (> 0.6.4)
+    ruby-ole (1.2.11.7)
+    rubyzip (1.1.3)
     safe_yaml (1.0.2)
     sass (3.2.19)
     sass-rails (4.0.3)
@@ -119,6 +149,8 @@ GEM
       sass (~> 3.2.0)
       sprockets (~> 2.8, <= 2.11.0)
       sprockets-rails (~> 2.0)
+    spreadsheet (0.9.7)
+      ruby-ole (>= 1.0)
     sprockets (2.11.0)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -148,10 +180,13 @@ DEPENDENCIES
   cancan
   devise
   friendly_id (~> 5.0.0)
+  google-spreadsheet-ruby
   jbuilder (~> 1.2)
   jquery-rails
   pg
   rails (= 4.0.4)
+  rails_12factor
   rails_admin
+  roo
   sass-rails (~> 4.0.2)
   uglifier (>= 1.3.0)

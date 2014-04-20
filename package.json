@@ -19,7 +19,7 @@
   },
   "dependencies": {
     "underscore": "^1.6.0",
-    "d3-metatable": "git+https://github.com/sethvincent/d3-metatable.git#c7d62c15",
+    "d3-metatable": "git+https://github.com/sethvincent/d3-metatable.git#77db81bbda",
     "d3": "^3.4.5",
     "backbone": "^1.1.2",
     "jquery": "^2.1.0"

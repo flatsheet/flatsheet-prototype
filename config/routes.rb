@@ -4,6 +4,7 @@ Flatsheet::Application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   root 'pages#home'
   resources :sheets, :defaults => { :format => 'json' }
+  post 'import-file' => 'sheets#import_file', as: 'import_file'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

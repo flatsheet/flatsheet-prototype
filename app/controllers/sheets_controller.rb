@@ -4,7 +4,7 @@ class SheetsController < ApplicationController
   # GET /sheets
   # GET /sheets.json
   def index
-    @sheets = Sheet.all
+    @sheets = Sheet.user_sheets(current_user)
   end
 
   # GET /sheets/1
@@ -21,6 +21,16 @@ class SheetsController < ApplicationController
   def edit
   end
 
+  def import_file
+    sheet = params[:sheet] || Sheet.new({
+      name: 'A new sheet!', 
+      description: 'Enter a sheet description!',
+      user: current_user
+    })
+    Sheet.import_file(params[:file], sheet)
+    redirect_to root_path
+  end
+
   # POST /sheets
   # POST /sheets.json
   def create
@@ -30,6 +40,7 @@ class SheetsController < ApplicationController
     # i don't know why the rows parameter is isn;t permitted
     # so i'm grabbing it from params, which seems ugly
     @sheet[:rows] = params[:sheet][:rows]
+    @sheet.user = current_user
 
     respond_to do |format|
       if @sheet.save

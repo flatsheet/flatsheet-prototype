@@ -13,3 +13,7 @@ gem 'rails_admin'
 gem 'devise'
 gem 'cancan'
 gem 'friendly_id', '~> 5.0.0'
+gem 'roo'
+gem 'google-spreadsheet-ruby'
+
+gem 'rails_12factor', group: :production

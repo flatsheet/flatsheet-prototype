@@ -5,6 +5,7 @@ class SheetsController < ApplicationController
   # GET /sheets.json
   def index
     @sheets = Sheet.user_sheets(current_user)
+    authorize! :show, @sheets
   end
 
   # GET /sheets/1
@@ -15,20 +16,26 @@ class SheetsController < ApplicationController
   # GET /sheets/new
   def new
     @sheet = Sheet.new
+    authorize! :show, @sheet  
   end
 
   # GET /sheets/1/edit
   def edit
+    authorize! :manage, Sheet
   end
 
   def import_file
-    sheet = params[:sheet] || Sheet.new({
-      name: 'A new sheet!', 
-      description: 'Enter a sheet description!',
-      user: current_user
-    })
-    Sheet.import_file(params[:file], sheet)
-    redirect_to root_path
+    if user_signed_in?
+      sheet = params[:sheet] || Sheet.new({
+        name: 'A new sheet!', 
+        description: 'Enter a sheet description!',
+        user: current_user
+      })
+      Sheet.import_file(params[:file], sheet)
+      redirect_to root_path
+    else
+      redirect_to root_path
+    end
   end
 
   # POST /sheets

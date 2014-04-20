@@ -2,8 +2,18 @@
   <div class="container">
     <ul class="main-nav">
       <li><a href="#">dashboard</a></li>
-      <% if current_user %>
+      <% if user_signed_in? %>
         <li><a href="#new">new sheet</a></li>
+        <li>
+        <%= link_to('sign out', destroy_user_session_path, method: :delete) %>        
+        </li>
+      <% else %>
+        <li>
+        <%= link_to('sign in', new_user_session_path)  %>  
+        </li>
+        <li>
+        <%= link_to('create account', new_user_registration_path)  %>  
+        </li>
       <% end %>
     </ul>
   </div>
@@ -11,11 +21,6 @@
 
 <main role="main">
   <div class="container">
-    <%= form_tag import_file_path, multipart: true do %>
-      <%= file_field_tag :file %>
-      <%= submit_tag "Import" %>
-    <% end %>
-    <br>
     <div id="main"></div>
   </div>
 </main>
@@ -44,4 +49,14 @@
   <h2>{{= field }}</h2>
   <textarea rows=10>{{= text }}</textarea>
   <button class="button update">Update</button>
+</script>
+
+<script id="import-form-template" type="text/template">
+  <div class="import-form">
+  <h3>Import a json, csv, excel, or ods file to start your sheet</h3>
+  <%= form_tag import_file_path, multipart: true do %>
+    <%= file_field_tag :file %>
+    <%= submit_tag "Import" %>
+  <% end %>
+  </div>
 </script>

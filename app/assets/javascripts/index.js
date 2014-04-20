@@ -61,7 +61,9 @@ var SheetListView = Backbone.View.extend({
 
   render: function(){
     var self = this;
-    $('#main').html(this.el);
+    var importForm = _.template( $('#import-form-template').html() );
+    $('#main').html(importForm);
+    $('#main').append(this.el);
     this.sheets.each(function(sheet){
       self.appendSheet(sheet);
     });

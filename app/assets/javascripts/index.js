@@ -1,5 +1,5 @@
 var Backbone = require('backbone');
-var $ = Backbone.$ = require('jquery');
+var $ = Backbone.$ = window.$;
 var _ = require('underscore');
 var d3 = require('d3');
 var metatable = require('d3-metatable');

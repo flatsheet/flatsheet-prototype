@@ -7,6 +7,28 @@
 </head>
 <body>
 
+<header>
+  <div class="container">
+    <ul class="main-nav">
+      <li><a href="/#">dashboard</a></li>
+      <li><a href="/documentation">documentation</a></li>
+      <% if user_signed_in? %>
+        <li><a href="/#new">new sheet</a></li>
+        <li>
+        <%= link_to('sign out', destroy_user_session_path, :method => :delete) %>        
+        </li>
+      <% else %>
+        <li>
+        <%= link_to('sign in', new_user_session_path)  %>  
+        </li>
+        <li>
+        <%= link_to('create account', new_user_registration_path)  %>  
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</header>
+
 <%= yield %>
 
 <%= javascript_include_tag "application" %>

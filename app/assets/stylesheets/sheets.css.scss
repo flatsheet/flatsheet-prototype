@@ -96,6 +96,7 @@ input[type=password] {
   width: 300px;
 }
 
+.icon,
 button,
 .button,
 input[type="submit"] {
@@ -112,6 +113,7 @@ input[type="submit"] {
   line-height: 45px;
 }
 
+.icon:hover,
 button:hover,
 button:focus,
 .button:hover,
@@ -224,14 +226,25 @@ header ul.main-nav {
 
   th > div.small {
     width: 200px;
+    margin: 3px 0px 2px 0px;
   }
 
   th .icon {
-    font-size: 12px;
-    padding: 0px 3px;
+    font-size: 10px;
+    padding: 2px 5px;
     height: 20px;
     line-height: 20px;
     vertical-align: top;
+    background-color: #efefec;
+    border: 0px;
+    margin: 3px 3px;
+    color: #646462;
+  }
+
+  th .icon:hover {
+    text-decoration: none;
+    color: #000;
+    background-color: #dfdfdc;
   }
 
   td > input {
@@ -253,13 +266,13 @@ header ul.main-nav {
 
     i { 
       padding: 8px;
-      color: #bfbfbd;
+      color: #646462;
     }
   }
 
   td > span.expand:hover {
-    background-color: #d2d2d0;
-    i { color: #646462; }
+    background-color: #dfdfdc;
+    i { color: #000; }
   }
 }
 
@@ -292,10 +305,12 @@ header ul.main-nav {
   padding: 0px 15px;
 }
 
-.sheet-name {
+input.sheet-name {
   font-size: 30px;
   border: 0px;
   width: 100%;
+  border: 0px;
+  padding-left: 0px;
 }
 
 .sheet-description {

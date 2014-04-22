@@ -141,7 +141,7 @@ var SheetDetailView = Backbone.View.extend({
   },
 
   expand: function(e){
-    var $input = $(e.target).parent().find('input');
+    var $input = $(e.target).parent().parent().find('input');
     var editor = new CellEditor($input, this, e.target);
   },
 
@@ -165,16 +165,8 @@ var SheetDetailView = Backbone.View.extend({
           })
       );
 
-    var $cells = $('.sheet-rows table td')
-//
-    //$cells.each(function(a, b, c){
-    //  var span = document.createElement('span');
-    //  span.className = 'expand';
-    //  $(this).append(span);
-    //});
-
-    $('.controls').append('<a href="#" class="add-row button">new row</a>');
-    $('.controls').append('<a href="#" class="save button">save</a>');
+    $('.controls').append('<a href="#" class="add-row button">New row</a>');
+    $('.controls').append('<a href="#" class="save button">Save</a>');
 
     if (this.model.get('id')){
       var endpoint = document.createElement('a');
@@ -202,9 +194,9 @@ var CellEditor = Backbone.View.extend({
     this.$input = $input;
     this.detailView = detailView;
 
-    var parent = target.parentNode;
+    var parent = target.parentNode.parentNode;
     this.inputEl = parent.firstElementChild;
-    console.log(this.inputEl)
+    console.log(parent, this.inputEl)
     this.template = _.template( $('#cell-editor-template').html() );
     this.render();
   },

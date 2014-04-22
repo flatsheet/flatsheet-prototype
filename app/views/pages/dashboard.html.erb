@@ -1,0 +1,37 @@
+<div id="main"></div>
+
+<script id="sheet-list-item-template" type="text/template">
+  <div class="list-item">
+    <h2 class="name"><a href="#sheet-{{= sheet.id }}">{{= sheet.name }}</a></h2>
+    <div class="description">
+      {{= sheet.description }} 
+      <a href="/sheets/{{= sheet.id }}" class="endpoint button" target="_blank">API endpoint.</a>
+    </div>
+  </div>
+</script>
+
+<script id="sheet-detail-template" type="text/template">
+  <div class="sheet-detail">
+    <div class="sheet-meta">
+      <input class="sheet-name" type="text" value="{{= sheet.name }}"><br>
+      <textarea class="sheet-description">{{= sheet.description }}</textarea><br>
+    </div>
+  </div>
+  <div class="sheet-rows"></div>
+</script>
+
+<script id="cell-editor-template" type="text/template">
+  <h2>{{= field }}</h2>
+  <textarea rows=10>{{= text }}</textarea>
+  <button class="button update">Update</button>
+</script>
+
+<script id="import-form-template" type="text/template">
+  <div class="import-form">
+  <h3>Import a json, csv, excel, or ods file to start your sheet</h3>
+  <%= form_tag import_file_path, multipart: true do %>
+    <%= file_field_tag :file %>
+    <%= submit_tag "Import" %>
+  <% end %>
+  </div>
+</script>

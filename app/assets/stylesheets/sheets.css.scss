@@ -8,7 +8,7 @@ input,
 button,
 select,
 textarea {
-  font: 16px/1.2 "Helvetica Neue", Helvetica, arial, sans-serif;
+  font: 16px/1.2 'Source Sans Pro', 'Helvetica Neue', Helvetica, arial, sans-serif;
   color: #444;
   -webkit-font-smoothing: antialiased;
   font-smoothing: antialiased;
@@ -41,7 +41,7 @@ h6 {
 }
 
 a {
-  color: #3c80c3;
+  color: #2A8782;
   text-decoration: none;
 }
 
@@ -51,7 +51,7 @@ a:hover {
 
 a:active,
 a:focus {
-  color: #1e4062;
+  color: #154240;
 }
 
 pre,
@@ -81,10 +81,10 @@ button,
 .button,
 input[type="submit"] {
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, sans-serif;
-  background-color: #1388A0;
+  background-color: #015770;
   color: #fefefa;
   border-radius: 2px;
-  border: 1px solid #1388A0;
+  border: 1px solid #015770;
   font-weight: 400;
   cursor: pointer;
   font-size: 14px;
@@ -99,13 +99,17 @@ button:focus,
 .button:focus,
 input[type="submit"]:hover,
 input[type="submit"]:focus {
-  background-color: #0D6172;
-  border-color: #0D6172;
+  background-color: #013545;
+  border-color: #013545;
   color: #fff;
 }
 
 a.button {
   padding: 11px 10px 10px 10px;
+}
+
+a.button:hover {
+  text-decoration: none;
 }
 
 .endpoint.button {
@@ -130,14 +134,35 @@ header {
   background-color: #f6f6f5;
   height: 40px;
   margin-bottom: 20px;
+  border-bottom: 1px solid #e2e2e0;
+
+  h1.site-title {
+    font-size: 20px;
+    margin-top: 0px;
+    line-height: 1;
+    float: left;
+    font-weight: 400;
+    letter-spacing: -1px;
+
+    a {
+      color: #535351;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: #000;
+    }
+  }
 }
 
 header ul.main-nav {
   margin: 0px;
   padding: 0px;
+  text-align: right;
 
   li {
     display: inline-block;
+    margin-left: 15px;
   }
 }
 
@@ -163,11 +188,16 @@ header ul.main-nav {
 
   .controls {
     margin-bottom: 20px;
-    background-color: #eaeaec;
+    background-color: #f6f6f5;
 
-    button {
-      margin-left: 0px;
+    a {
+      margin: 0px;
+      padding: 1px 15px;
       border-radius: 0px;
+      border: 0px;
+      display: inline-block;
+      height: 45px;
+      line-height: 45px;
     }
   }
 
@@ -201,6 +231,16 @@ header ul.main-nav {
     cursor: pointer;
     margin: 0px;
     vertical-align: top;
+
+    i { 
+      padding: 8px;
+      color: #bfbfbd;
+    }
+  }
+
+  td > span.expand:hover {
+    background-color: #d2d2d0;
+    i { color: #646462; }
   }
 }
 
@@ -249,6 +289,39 @@ header ul.main-nav {
   border-bottom: 1px solid #f2f2f0;
   padding-bottom: 8px;
   margin-bottom: 12px;
+}
+
+.landing {
+  p.question {
+    font-size: 45px;
+    text-align: center;
+    margin-top: 60px;
+    font-weight: 200;
+    letter-spacing: -2px;
+    display: block;
+    padding: 0px 80px;
+    color: #2A8782;
+  }
+
+  h1 {
+    font-size: 70px;
+    letter-spacing: -2px;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 40px;
+    font-weight: 200;
+    color: #332F45;
+
+    b { font-weight: 400; }
+    i { font-family: Baskerville, sans-serif; }
+  }
+}
+
+a.button.get-started {
+  height: 80px;
+  line-height: 80px;
+  padding: 20px 30px;
+  font-size: 25px;
 }
 
 /* mobile size */

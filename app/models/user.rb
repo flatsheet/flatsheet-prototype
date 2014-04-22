@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
 
   private
     def set_api_key
-      return if api_key.present?
+      return if self.api_key.present?
 
       begin
         self.api_key = SecureRandom.hex

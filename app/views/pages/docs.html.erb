@@ -1,1 +1,74 @@
-<h1>Documentation</h1>
+<div class="docs">
+  <h1>Documentation</h1>
+
+
+  <div id="api">
+  <h2>flatsheet API</h2>
+  <p>There are currently two API endpoints.</p>
+  <br>
+
+  <p><b>To get a list of sheets:</b> <code>/sheets</code></p>
+  <p>The response is an array of sheets with <code>id</code>, <code>name</code>, <code>description</code>, and <code>url</code> properties.
+  <br><br>
+  <p><b>To get individual sheets:</b> <code>/sheets/:id</code></p>
+  <hr>
+  <h3><code>/sheets</code> Response example</h3>
+  <pre>[
+  {
+    id: 3,
+    name: "pizza time",
+    description: "A sheet about pizza",
+    url: "https://flatsheet.io/sheets/3"
+  },
+  {
+    id: 2,
+    name: "A new sheet!",
+    description: "Describe your sheet here.",
+    url: "https://flatsheet.io/sheets/2"
+  },
+  {
+    id: 1,
+    name: "waaaa",
+    description: "Describe your sheet here.",
+    url: "https://flatsheet.io/sheets/1"
+  }
+]
+</pre>
+  <br>
+  <h3><code>/sheets/:id</code> Response example</h3>
+  <pre>{
+  id: 3,
+  name: "pizza time",
+  description: "A sheet about pizza",
+  rows: [
+    {
+      name: "margherita",
+      crust: "thin",
+      sauce: "tomato"
+    },
+    {
+      name: "deep dish",
+      crust: "deep",
+      sauce: "tomato"
+    }
+  ],
+  created_at: "2014-04-22T06:47:32.290Z",
+  updated_at: "2014-04-22T06:47:43.690Z"
+}
+</pre>
+  </div>
+
+  <div id="curl">
+    <h2>Making requests with curl</h2>
+  </div>
+
+  <div id="javascript">
+    <h2>Making requests with JavaScript</h2>
+
+  </div>
+
+  <div id="ruby">
+    <h2>Making requests with Ruby</h2>
+
+  </div>
+</div>

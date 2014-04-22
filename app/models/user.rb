@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  before_create :set_api_key
+
   extend FriendlyId
   friendly_id :name, use: :slugged
 
@@ -7,7 +9,12 @@ class User < ActiveRecord::Base
 
   has_many :sheets
 
-  def admin?
-    self[:admin]
-  end
+  private
+    def set_api_key
+      return if api_key.present?
+
+      begin
+        self.api_key = SecureRandom.hex
+      end while self.class.exists?(api_key: self.api_key)
+    end
 end

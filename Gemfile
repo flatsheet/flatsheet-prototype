@@ -11,9 +11,10 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 1.2'
 gem 'rails_admin'
 gem 'devise'
-gem 'cancan'
+gem 'cancancan', '~> 1.7'
 gem 'friendly_id', '~> 5.0.0'
 gem 'roo'
 gem 'google-spreadsheet-ruby'
+gem 'rack-cors', :require => 'rack/cors'
 
 gem 'rails_12factor', group: :production

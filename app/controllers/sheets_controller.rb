@@ -1,11 +1,12 @@
 class SheetsController < ApplicationController
   before_action :set_sheet, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate
 
   # GET /sheets
   # GET /sheets.json
   def index
-    @sheets = Sheet.user_sheets(current_user)
-    authorize! :show, @sheets
+    @user = @user || current_user
+    @sheets = @user.sheets
   end
 
   # GET /sheets/1
@@ -16,7 +17,7 @@ class SheetsController < ApplicationController
   # GET /sheets/new
   def new
     @sheet = Sheet.new
-    authorize! :show, @sheet  
+    authorize! :manage, @sheet  
   end
 
   # GET /sheets/1/edit
@@ -92,6 +93,21 @@ class SheetsController < ApplicationController
   end
 
   private
+    def authenticate
+      current_user || authenticate_token || render_unauthorized
+    end
+
+    def authenticate_token
+      authenticate_with_http_token do |token, options|
+        @user = User.find_by(api_key: token)
+      end
+    end
+
+    def render_unauthorized
+      self.headers['WWW-Authenticate'] = 'Token realm="Application"'
+      render json: 'Bad credentials. Log in to see sheets.', status: 401
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_sheet
       @sheet = Sheet.find(params[:id])

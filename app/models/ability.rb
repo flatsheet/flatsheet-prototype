@@ -5,15 +5,13 @@ class Ability
 
     user ||= User.new
 
-    if user['admin'] = true
+    if !user['admin'] == true
       can :manage, :all
       can :access, :rails_admin
       can :dashboard
-    else
-      can :manage, Sheet do |sheet|
-        sheet.try(:user) == user
-      end
     end
+
+    can :manage, Sheet, :user_id => user.id
 
   end
 end

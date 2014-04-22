@@ -16,6 +16,7 @@ Backbone.sync = function(method, model, options) {
     beforeSend: function(xhr) {
       var token = $('meta[name="csrf-token"]').attr('content');
       if (token) xhr.setRequestHeader('X-CSRF-Token', token);
+      xhr.setRequestHeader('Authorization', 'Token token=96aa062b2cc8d494aea477cd2f520c7e');
     }
   }, options)
   return Backbone.old_sync(method, model, new_options);
@@ -158,7 +159,6 @@ var SheetDetailView = Backbone.View.extend({
             rows[i] = row;
             self.model.set({ rows: rows });
             var p = self.model.get('rows')
-            console.log('change happened')
           })
           .on('rowfocus', function(row, i) {
 
@@ -196,7 +196,6 @@ var CellEditor = Backbone.View.extend({
 
     var parent = target.parentNode.parentNode;
     this.inputEl = parent.firstElementChild;
-    console.log(parent, this.inputEl)
     this.template = _.template( $('#cell-editor-template').html() );
     this.render();
   },

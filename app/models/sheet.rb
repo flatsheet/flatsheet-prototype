@@ -11,20 +11,18 @@ class Sheet < ActiveRecord::Base
 
   def self.import_file(file, sheet)
     if File.extname(file.original_filename) == '.json'
-      file = File.new(file.path)
-      sheet['rows'] = JSON.parse file.read
+      json_file = File.new(file.path)
+      sheet['rows'] = JSON.parse json_file.read
     else
       sheet['rows'] = []
       spreadsheet = open_spreadsheet(file)
       header = spreadsheet.row(1)
       (2..spreadsheet.last_row).each do |i|
         row = Hash[[header, spreadsheet.row(i)].transpose]
-        puts "\n\n\n***************\n"
-        puts row
-        puts "\n\n\n***************\n"
         sheet['rows'].push(row)
       end
     end
+    sheet['name'] = File.basename(file.original_filename)
     sheet.save
   end
 

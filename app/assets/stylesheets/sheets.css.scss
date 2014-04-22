@@ -77,6 +77,25 @@ img {
   vertical-align: middle;
 }
 
+.user-form {
+  width: 300px;
+  margin: 0px auto;
+
+  input[type=submit] {
+    margin-top: 20px;
+    margin-bottom: 15px;
+  }
+}
+
+input[type=text],
+input[type=email],
+input[type=password] {
+  border: 1px solid #efefef;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  width: 300px;
+}
+
 button,
 .button,
 input[type="submit"] {
@@ -299,7 +318,7 @@ header ul.main-nav {
     font-weight: 200;
     letter-spacing: -2px;
     display: block;
-    padding: 0px 80px;
+    padding: 0px 130px;
     color: #2A8782;
   }
 

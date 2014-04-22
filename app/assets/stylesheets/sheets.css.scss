@@ -360,6 +360,42 @@ a.button.get-started {
   font-size: 25px;
 }
 
+.docs {
+  width: 70%;
+  float: left;
+}
+
+.docs-sidebar {
+  width: 29%;
+  float: right;
+  position: fixed;
+  right: 0;
+
+  ul {
+    margin: 0px;
+    padding: 0px;
+
+    li {
+      list-style-type: none;
+    }
+
+    a {
+      background-color: #f9f9f7;
+      color: #646462;
+      padding: 5px 10px;
+      display: block;
+      width: 100%;
+    }
+
+    a:hover {
+      background-color: #e9e9e7;
+      color: #000;
+      text-decoration: none;
+    }
+  }
+}
+
+
 /* mobile size */
 .container {
   width: 90%;

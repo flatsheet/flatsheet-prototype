@@ -79,6 +79,10 @@ img {
   vertical-align: middle;
 }
 
+.serif {
+  font-family: Baskerville, sans-serif;
+}
+
 .user-form {
   width: 300px;
   margin: 0px auto;
@@ -329,7 +333,7 @@ input.sheet-name {
 
 .landing {
   p.question {
-    font-size: 45px;
+    font-size: 50px;
     text-align: center;
     margin-top: 60px;
     font-weight: 200;
@@ -349,7 +353,6 @@ input.sheet-name {
     color: #332F45;
 
     b { font-weight: 400; }
-    i { font-family: Baskerville, sans-serif; }
   }
 }
 

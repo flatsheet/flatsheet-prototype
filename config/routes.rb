@@ -4,9 +4,10 @@ Flatsheet::Application.routes.draw do
   get 'documentation' => 'pages#docs'
 
   resources :sheets, :defaults => { :format => 'json' }
+
   post 'import-file' => 'sheets#import_file', as: 'import_file'
 
-  devise_for :users
+  devise_for :users 
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 

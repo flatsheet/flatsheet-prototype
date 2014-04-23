@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   before_create :set_api_key
 
   extend FriendlyId
-  friendly_id :name, use: :slugged
+  friendly_id :username, use: :slugged
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable

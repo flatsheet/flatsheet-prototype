@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 20140422054844) do
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.boolean  "admin"
-    t.string   "name"
+    t.string   "username"
     t.string   "slug"
     t.string   "api_key"
   end

@@ -1,11 +1,11 @@
 class SheetsController < ApplicationController
   before_action :set_sheet, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate
+  before_action :authenticate_get, only: [:index, :show]
+  before_action :authenticate, only: [:create, :update, :destroy]
 
   # GET /sheets
   # GET /sheets.json
   def index
-    @user = @user || current_user
     @sheets = @user.sheets
   end
 
@@ -43,12 +43,7 @@ class SheetsController < ApplicationController
   # POST /sheets.json
   def create
     @sheet = Sheet.new(sheet_params)
-
-    # TODO: fix this nasty hack
-    # i don't know why the rows parameter is isn;t permitted
-    # so i'm grabbing it from params, which seems ugly
-    @sheet[:rows] = params[:sheet][:rows]
-    @sheet.user = current_user
+    @sheet.user = current_user || @user
 
     respond_to do |format|
       if @sheet.save
@@ -65,14 +60,7 @@ class SheetsController < ApplicationController
   # PATCH/PUT /sheets/1.json
   def update
     respond_to do |format|
-
-      # TODO: fix this nasty hack
-      # i don't know why the rows parameter is isn;t permitted
-      # so i'm grabbing it from params, which seems ugly
-      data = sheet_params
-      data[:rows] = params[:sheet][:rows]
-      
-      if @sheet.update(data)
+      if @sheet.update(sheet_params)
         format.html { redirect_to @sheet, notice: 'Sheet was successfully updated.' }
         format.json { render json: @sheet }
       else
@@ -93,6 +81,11 @@ class SheetsController < ApplicationController
   end
 
   private
+
+    def authenticate_get
+      @user = current_user || User.find_by(username: params[:username])
+    end
+
     def authenticate
       current_user || authenticate_token || render_unauthorized
     end

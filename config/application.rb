@@ -16,6 +16,11 @@ module Flatsheet
         origins '*'
         resource '*', headers: :any, methods: [:get]
       end
+
+      allow do
+        origins 'localhost:3333', 'flatsheet.herokuapp.com', 'flatsheet.io'
+        resource '*', headers: :any, methods: [:get, :post, :put, :patch, :delete, :options]
+      end
     end
     
     # Settings in config/environments/* take precedence over those specified here.

@@ -16,7 +16,7 @@ Backbone.sync = function(method, model, options) {
     beforeSend: function(xhr) {
       var token = $('meta[name="csrf-token"]').attr('content');
       if (token) xhr.setRequestHeader('X-CSRF-Token', token);
-      xhr.setRequestHeader('Authorization', 'Token token=96aa062b2cc8d494aea477cd2f520c7e');
+      //xhr.setRequestHeader('Authorization', 'Token token=96aa062b2cc8d494aea477cd2f520c7e');
     }
   }, options)
   return Backbone.old_sync(method, model, new_options);
@@ -30,7 +30,9 @@ var Sheet = Backbone.Model.extend({
   },
   urlRoot: '/sheets',
   toJSON: function() {
-    return { sheet: _.clone( this.attributes ) }
+    var sheet = _.clone( this.attributes );
+    sheet.rows = JSON.stringify(sheet.rows);
+    return { sheet: sheet };
   },
 });
 

@@ -29,6 +29,7 @@ var Sheet = Backbone.Model.extend({
     rows: [{ 'sample column': 'rename this column to get started!' }]
   },
   urlRoot: '/sheets',
+  idAttribute: 'slug',
   toJSON: function() {
     var sheet = _.clone( this.attributes );
     sheet.rows = JSON.stringify(sheet.rows);
@@ -95,15 +96,12 @@ var SheetDetailView = Backbone.View.extend({
     var self = this;
     this.template = _.template( $('#sheet-detail-template').html() );
 
-    if (this.model.get('id')){
-      this.model.fetch({
-        success: function(){
-          self.render();
-        }
-      });
-    } else {
-      this.render();
-    }
+    this.model.fetch({
+      data: $.param({ id: this.id }),
+      success: function(a, b){
+        self.render();
+      }
+    });
   },
 
   events: {
@@ -123,7 +121,7 @@ var SheetDetailView = Backbone.View.extend({
 
     var opts = {
       success: function(model){
-        if (location.hash == '#new') location.hash = 'sheet-' + model.get('id');
+        if (location.hash == '#new') location.hash = '#' + model.get('slug');
       }
     };
 
@@ -160,7 +158,8 @@ var SheetDetailView = Backbone.View.extend({
           .on('change', function(row, i) {
             rows[i] = row;
             self.model.set({ rows: rows });
-            var p = self.model.get('rows')
+            var p = self.model.get('rows');
+            self.save();
           })
           .on('rowfocus', function(row, i) {
 
@@ -170,10 +169,10 @@ var SheetDetailView = Backbone.View.extend({
     $('.controls').append('<a href="#" class="add-row button">New row</a>');
     $('.controls').append('<a href="#" class="save button">Save</a>');
 
-    if (this.model.get('id')){
+    if (this.model.get('slug')){
       var endpoint = document.createElement('a');
       endpoint.innerHTML = 'API endpoint for this sheet';
-      endpoint.href = '/sheets/' + this.model.get('id');
+      endpoint.href = '/sheets/' + this.model.get('slug');
       endpoint.target = '_blank';
       endpoint.className = 'api-endpoint';
       $('.controls').append(endpoint);
@@ -203,7 +202,8 @@ var CellEditor = Backbone.View.extend({
   },
 
   events: {
-    'click .update': 'update'
+    'click .update': 'update',
+    'click .close-editor': 'update'
   },
 
   update: function(e){
@@ -229,7 +229,7 @@ var Router = Backbone.Router.extend({
   routes: {
     '': 'sheetList',
     'new': 'newSheet',
-    'sheet-:id': 'sheetDetail'
+    'sheet/:slug': 'sheetDetail'
   },
 
   initialize: function(){},
@@ -244,9 +244,9 @@ var Router = Backbone.Router.extend({
     });
   },
 
-  sheetDetail: function(id){
+  sheetDetail: function(slug){
     new SheetDetailView({
-      model: new Sheet({ id: id })
+      model: new Sheet({ slug: slug })
     });
   }
 });

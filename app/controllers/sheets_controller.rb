@@ -4,27 +4,15 @@ class SheetsController < ApplicationController
   before_action :authenticate, only: [:create, :update, :destroy]
 
   # GET /sheets
-  # GET /sheets.json
   def index
     @sheets = @user.sheets
   end
 
-  # GET /sheets/1
-  # GET /sheets/1.json
+  # GET /sheets/:id
   def show
   end
 
-  # GET /sheets/new
-  def new
-    @sheet = Sheet.new
-    authorize! :manage, @sheet  
-  end
-
-  # GET /sheets/1/edit
-  def edit
-    authorize! :manage, Sheet
-  end
-
+  # POST /import-file
   def import_file
     if user_signed_in?
       sheet = params[:sheet] || Sheet.new({
@@ -103,7 +91,7 @@ class SheetsController < ApplicationController
 
     # Use callbacks to share common setup or constraints between actions.
     def set_sheet
-      @sheet = Sheet.find(params[:id])
+      @sheet = Sheet.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

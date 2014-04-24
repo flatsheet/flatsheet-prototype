@@ -18,7 +18,7 @@ module Flatsheet
       end
 
       allow do
-        origins 'localhost:3333', 'flatsheet.herokuapp.com', 'flatsheet.io'
+        origins 'localhost:3333', 'flatsheet.herokuapp.com', 'app.flatsheet.io'
         resource '*', headers: :any, methods: [:get, :post, :put, :patch, :delete, :options]
       end
     end

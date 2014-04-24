@@ -2,10 +2,10 @@
 
 <script id="sheet-list-item-template" type="text/template">
   <div class="list-item">
-    <h2 class="name"><a href="#sheet-{{= sheet.id }}">{{= sheet.name }}</a></h2>
+    <h2 class="name"><a href="#sheet/{{= sheet.slug }}">{{= sheet.name }}</a></h2>
     <div class="description">
       {{= sheet.description }} 
-      <a href="/sheets/{{= sheet.id }}" class="endpoint button" target="_blank">API endpoint.</a>
+      <a href="/sheets/{{= sheet.slug }}" class="endpoint button" target="_blank">API endpoint.</a>
     </div>
   </div>
 </script>
@@ -21,9 +21,11 @@
 </script>
 
 <script id="cell-editor-template" type="text/template">
-  <h2>{{= field }}</h2>
-  <textarea rows=10>{{= text }}</textarea>
-  <button class="button update">Update</button>
+  <div class="editor-inner-wrapper">
+    <h2>{{= field }}</h2>
+    <textarea rows=10>{{= text }}</textarea>
+    <button class="button update"><i class="fa fa-compress"></i> Update</button>
+  </div>
 </script>
 
 <script id="import-form-template" type="text/template">

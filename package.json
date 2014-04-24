@@ -2,11 +2,8 @@
   "name": "flatsheet",
   "version": "0.0.0",
   "description": "",
-  "main": "",
-  "directories": {
-    "test": "test"
-  },
   "scripts": {
+    "assets": "npm run bundle && RAILS_ENV=production bundle exec rake assets:precompile",
     "bundle": "browserify app/assets/javascripts/index.js -o app/assets/javascripts/bundle.js",
     "watch-js": "watchify app/assets/javascripts/index.js -o app/assets/javascripts/bundle.js --debug",
     "start": "npm run watch-js & bin/rails s -p 3333"

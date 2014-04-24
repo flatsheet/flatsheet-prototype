@@ -1,9 +1,8 @@
 class Sheet < ActiveRecord::Base
   belongs_to :user
 
-  def self.user_sheets(u)
-    where(:user_id => u.id)
-  end
+  extend FriendlyId
+  friendly_id :randomize_id, use: :slugged
 
   def self.import_google_spreadsheet(key)
     s = Roo::Google.new(key)
@@ -36,4 +35,9 @@ class Sheet < ActiveRecord::Base
     end
   end
 
+  def randomize_id
+    begin
+      return SecureRandom.urlsafe_base64
+    end while Sheet.where(id: self.slug).exists?
+  end  
 end

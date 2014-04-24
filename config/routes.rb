@@ -3,7 +3,9 @@ Flatsheet::Application.routes.draw do
   root 'pages#home'
   get 'documentation' => 'pages#docs'
 
-  resources :sheets, :defaults => { :format => 'json' }
+  resources :sheets, :defaults => { :format => 'json' } do 
+    get '/sheets/:username', to: 'sheets#index'
+  end
 
   post 'import-file' => 'sheets#import_file', as: 'import_file'
 

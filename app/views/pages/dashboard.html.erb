@@ -30,10 +30,10 @@
 
 <script id="import-form-template" type="text/template">
   <div class="import-form">
-  <h3>Import a json, csv, excel, or ods file to start your sheet</h3>
-  <%= form_tag import_file_path, multipart: true do %>
-    <%= file_field_tag :file %>
-    <%= submit_tag "Import" %>
-  <% end %>
+    <h3>Import a csv or json file to start a sheet</h3>
+    <%= form_tag import_file_path, multipart: true do %>
+      <%= file_field_tag :file %>
+      <%= submit_tag "Import" %>
+    <% end %>
   </div>
 </script>

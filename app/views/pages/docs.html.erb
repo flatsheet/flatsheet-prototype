@@ -1,18 +1,17 @@
 <div class="docs">
   <h1>Documentation</h1>
 
-
   <div id="api">
   <h2>flatsheet API</h2>
   <p>There are currently two API endpoints.</p>
   <br>
 
-  <p><b>To get a list of sheets:</b> <code>/sheets</code></p>
+  <p><b>To get a list of sheets:</b> <code>/api/v1/sheets?username=example</code></p>
   <p>The response is an array of sheets with <code>id</code>, <code>name</code>, <code>description</code>, and <code>url</code> properties.
   <br><br>
-  <p><b>To get individual sheets:</b> <code>/sheets/:id</code></p>
+  <p><b>To get individual sheets:</b> <code>/api/v1/sheets/:id</code></p>
   <hr>
-  <h3><code>/sheets?username=example</code> Response example</h3>
+  <h3><code>/api/v1/sheets?username=example</code> Response example</h3>
   <pre>[
   {
     id: 1,
@@ -24,7 +23,7 @@
 ]
 </pre>
   <br>
-  <h3><code>/sheets/:id</code> Response example</h3>
+  <h3><code>/api/v1/sheets/:id</code> Response example</h3>
   <pre>{
   id: 1,
     slug: "tcuxl49owsafl-jgp5qrta",

@@ -28,7 +28,7 @@ var Sheet = Backbone.Model.extend({
     description: 'Describe your sheet here.',
     rows: [{ 'sample column': 'rename this column to get started!' }]
   },
-  urlRoot: '/sheets',
+  urlRoot: '/api/v1/sheets',
   idAttribute: 'slug',
   toJSON: function() {
     var sheet = _.clone( this.attributes );
@@ -38,7 +38,7 @@ var Sheet = Backbone.Model.extend({
 });
 
 var SheetCollection = Backbone.Collection.extend({
-  url: '/sheets',
+  url: '/api/v1/sheets',
   model: Sheet
 });
 
@@ -172,7 +172,7 @@ var SheetDetailView = Backbone.View.extend({
     if (this.model.get('slug')){
       var endpoint = document.createElement('a');
       endpoint.innerHTML = 'API endpoint for this sheet';
-      endpoint.href = '/sheets/' + this.model.get('slug');
+      endpoint.href = '/api/v1/sheets/' + this.model.get('slug');
       endpoint.target = '_blank';
       endpoint.className = 'api-endpoint';
       $('.controls').append(endpoint);

@@ -9,6 +9,10 @@ class User < ActiveRecord::Base
 
   has_many :sheets
 
+  def is_admin?
+    self['admin']
+  end
+
   private
     def set_api_key
       return if self.api_key.present?

@@ -12,48 +12,38 @@
   <br><br>
   <p><b>To get individual sheets:</b> <code>/sheets/:id</code></p>
   <hr>
-  <h3><code>/sheets</code> Response example</h3>
+  <h3><code>/sheets?username=example</code> Response example</h3>
   <pre>[
   {
-    id: 3,
-    name: "pizza time",
-    description: "A sheet about pizza",
-    url: "https://flatsheet.io/sheets/3"
-  },
-  {
-    id: 2,
-    name: "A new sheet!",
-    description: "Describe your sheet here.",
-    url: "https://flatsheet.io/sheets/2"
-  },
-  {
     id: 1,
-    name: "waaaa",
-    description: "Describe your sheet here.",
-    url: "https://flatsheet.io/sheets/1"
+    slug: "tcuxl49owsafl-jgp5qrta",
+    name: "Pizza",
+    description: "A sheet about pizza.",
+    url: "http://flatsheet.herokuapp.com/sheets/tcuxl49owsafl-jgp5qrta"
   }
 ]
 </pre>
   <br>
   <h3><code>/sheets/:id</code> Response example</h3>
   <pre>{
-  id: 3,
-  name: "pizza time",
-  description: "A sheet about pizza",
+  id: 1,
+    slug: "tcuxl49owsafl-jgp5qrta",
+    name: "Pizza",
+    description: "A sheet about pizza.",
   rows: [
     {
-      name: "margherita",
-      crust: "thin",
-      sauce: "tomato"
+      toppings: "pepperoni, olive, sausage",
+      cheese: "cheddar",
+      crust: "deep dish"
     },
     {
-      name: "deep dish",
-      crust: "deep",
-      sauce: "tomato"
+      toppings: "salmon, artichoke, basil",
+      cheese: "mozzarella",
+      crust: "thin"
     }
   ],
-  created_at: "2014-04-22T06:47:32.290Z",
-  updated_at: "2014-04-22T06:47:43.690Z"
+  created_at: "2014-04-24T03:22:03.255Z",
+  updated_at: "2014-04-24T03:25:14.359Z"
 }
 </pre>
   </div>

@@ -1,11 +1,11 @@
 class SheetsController < ApplicationController
   before_action :set_sheet, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_get, only: [:index, :show]
   before_action :authenticate, only: [:create, :update, :destroy]
 
   # GET /sheets
   def index
-    @sheets = @user.sheets
+    user = current_user || User.friendly.find(params[:username])
+    @sheets = user.sheets
   end
 
   # GET /sheets/:id
@@ -69,10 +69,6 @@ class SheetsController < ApplicationController
   end
 
   private
-
-    def authenticate_get
-      @user = current_user || User.find_by(username: params[:username])
-    end
 
     def authenticate
       current_user || authenticate_token || render_unauthorized

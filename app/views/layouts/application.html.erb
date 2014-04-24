@@ -17,7 +17,8 @@
         <li><a href="/admin">admin</a></li>
       <% end %>
       <% if user_signed_in? %>
-        <li><a href="/#">dashboard</a></li>
+        <li><%= link_to 'dashboard', root_path %></li>
+        <li><%= link_to 'account', account_path %></li>
       <% end %>
       <li><a href="/documentation">documentation</a></li>
       <% if user_signed_in? %>

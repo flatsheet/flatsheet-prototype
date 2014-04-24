@@ -11,7 +11,11 @@ Flatsheet::Application.routes.draw do
 
   post 'import-file' => 'sheets#import_file', as: 'import_file'
 
-  devise_for :users 
+  devise_for :users
+
+  as :user do
+    get 'account' => 'devise/registrations#edit'
+  end
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 

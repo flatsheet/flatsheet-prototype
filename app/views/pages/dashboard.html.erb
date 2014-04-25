@@ -33,7 +33,9 @@
     <h3>Import a csv or json file to start a sheet</h3>
     <%= form_tag import_file_path, multipart: true do %>
       <%= file_field_tag :file %>
-      <%= submit_tag "Import" %>
+      <%= button_tag(type: "submit", class: "btn btn-default") do %>
+        <i class="fa fa-upload"></i> Import
+      <% end %>
     <% end %>
   </div>
 </script>

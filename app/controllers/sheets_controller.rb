@@ -1,5 +1,5 @@
 class SheetsController < ApplicationController
-  before_action :set_sheet, only: [:show, :edit, :update, :destroy]
+  before_action :set_sheet, only: [:edit, :update, :destroy]
   before_action :authenticate, only: [:create, :update, :destroy]
 
   # GET /sheets
@@ -10,6 +10,7 @@ class SheetsController < ApplicationController
 
   # GET /sheets/:id
   def show
+    @sheet = Sheet.friendly.find(params[:id]) 
   end
 
   # POST /import-file
@@ -87,7 +88,13 @@ class SheetsController < ApplicationController
 
     # Use callbacks to share common setup or constraints between actions.
     def set_sheet
-      @sheet = Sheet.friendly.find(params[:id])
+      user = authenticate
+      sheet = Sheet.friendly.find(params[:id]) 
+      if sheet.user_id == user['id']
+        @sheet = sheet
+      else
+        redirect_to root_url
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

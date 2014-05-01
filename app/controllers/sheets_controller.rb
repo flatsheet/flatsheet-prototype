@@ -83,7 +83,7 @@ class SheetsController < ApplicationController
 
     def render_unauthorized
       self.headers['WWW-Authenticate'] = 'Token realm="Application"'
-      render json: 'Bad credentials. Log in to see sheets.', status: 401
+      render json: { status: 401, message: 'Access denied. Log in or use your API token to manage sheets.' }, status: 401
     end
 
     # Use callbacks to share common setup or constraints between actions.

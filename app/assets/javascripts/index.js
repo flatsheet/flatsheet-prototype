@@ -222,6 +222,7 @@ var CellEditor = Backbone.View.extend({
   render: function($input){
     var html = this.template({ text: this.$input.val(), field: this.$input.attr('field') });
     $('body').append(this.$el.html(html));
+    $('#textarea').focus();
   }
 });
 

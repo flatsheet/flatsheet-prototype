@@ -1,0 +1,34 @@
+name,description,project_tags,technology_tags,code_url,public_url,dev_status,contributors,screenshot_url,last_update,notes
+Seattle's Heritage Trees,,,,https://github.com/tsibley/seattle-trees,http://tsibley.net/trees/seattle,live,Thomas Sibley,,3/3/2014,
+Deglassified,A map of businesses with policies against Google Glass.,"google glass, privacy, map","ruby, rails, javascript, angularjs",https://github.com/licyeus/deglassified,deglassified.com,live,"Andrew Sullivan, Andre Levi",https://s3-us-west-2.amazonaws.com/droplr.storage/files/acc_1475/ZoZo?AWSAccessKeyId=AKIAJSVQN3Z4K7MT5U2A&Expires=1396503039&Signature=1hRODANobkUG%2Fbk6rLFDpFq0mF0%3D&response-content-disposition=inline%3B%20filename%3DScreenshot%20on%202014-04-02%20at%2021%3A30%3A26.png%3B,2/5/2014,
+geosub,,,python,https://github.com/willscott/geosub,???,in progress,Will Scott,,8/21/2013,
+nwdata,,,,https://github.com/sethvincent/nwdata.org,,,Seth Vincent,,,
+Seattle Blogs,,,,https://github.com/sethvincent/seattle-blogs,,,Seth Vincent,,,
+Streetlight Seattle Reporter,,,android,https://github.com/jsfrost/StreetlightSeattleReporter,,,Jerry Frost,,,
+Classical Music Calendar,,,,closed source?,,,Shaya,,,
+Seattle Wiki,,,,fork of Local Wiki,https://seattlewiki.net,live,Seth Vincent,,,
+Socrata SOAP2 ruby lib,,,,closed source?,,in progress,Scott Francis,,,
+Local development permit map,,,,closed source?,,in progress?,Ethan Phelps-Goodman,,,
+Political Annotations Chrome Extension,,,,https://github.com/typpo/political-annotations,n/a,in progress,"Ian Webster, Alex Miranda",,,hackathon project
+LocalWiki Node client,,,,https://github.com/codeforseattle/node-localwiki-client,,,"Seth Vincent, Will Scott",,,
+LocalWiki Ruby client,,,ruby,https://github.com/codeforseattle/localwiki_client,,,"Brandon Faloona, hcanzl, Seth Vincent",,,
+Seattle Food Truck Map,,"food trucks, map","ruby, rails, javascript, angular",https://github.com/licyeus/food-truck-map,seattlefoodtrucks.herokuapp.com,abandoned,,https://s3-us-west-2.amazonaws.com/droplr.storage/files/acc_1475/keyM?AWSAccessKeyId=AKIAJSVQN3Z4K7MT5U2A&Expires=1396504311&Signature=1b94b29CcNx6pYsmzPn4QgrjH38%3D&response-content-disposition=inline%3B%20filename%3DScreenshot%20on%202014-04-02%20at%2021%3A46%3A41.png%3B,,hackathon project (2013 ndoch - slc)
+Seattle GeoJSON datasets,,data,,https://github.com/licyeus/seattle-geojson,,in progress,,,,
+Seattle One Night Count datasets,,data,,https://github.com/licyeus/seattle-homeless-info,,in progress,,,,
+Splitting the Bill,,,,https://github.com/jgerrish/splittingthebill,n/a,in progress,Josh,,,legislative text parsing
+Seattle Open Data Policy proposal,,,,http://bit.ly/SeattleDataPolicy,,,"Tre, Andrew, Candace, ...",,,#CodeAcrossSea
+Seattle Data Inventory,,data,,http://seattlewiki.net/Open_Data_Resources,,,Shelly,,,#CodeAcrossSea
+Legislative Data Scraping,,,,,,,Pat,,,#CodeAcrossSea
+Realtime Transit Data,,,,https://github.com/domoritz/live-bus-seattle,http://domoritz.de/live-bus-seattle/#12/47.6210/-122.3328,,,,,#CodeAcrossSea
+Stolen Bike App,,,,https://github.com/lcdvirgo/stolenbikesSEA,http://bike.jumis.com/index.html,,,,,#CodeAcrossSea
+Seattle Broadband Map,,,,,,,,,,#CodeAcrossSea
+OpenStreetMap,,,,,,,,,,
+CKAN data inventory,,,,,,,Chris Metcalf,,,
+Icons for Seattle,,design,,http://github.com/codeforseattle/seattle-icons,seattleicons.org,,,,,
+Seattle Metro Cuts,,,,http://github.com/codeforseattle/metrocuts,codeforseattle.org/metrocuts,,,,,
+Barn Cats 'R' Us,,,,https://github.com/Cats-R-Us/CatTracker,,in progress,Al Boss,,6/1/2013,From the 2013 National Day of Civic Hacking
+ActivateHub,,,,https://github.com/activate/ActivateHub,http://activatehub.org/,live & ongoing,Lindsay Caron,,,
+seattle.io - guide to seattle neighborhoods,,,,https://github.com/seattleio/seattle.io,http://new.seattle.io,in progress,Seth Vincent,,,
+DemocracyLab,"Participation environment for users, developers, and supporters of Civic Tech",,,https://github.com/DemocracyLab,www.democracylab.org,live/in progress,Mark Frischmuth,,,
+"""What Do I Do With...?"" recycling app",Dropoff locator for recyclables and other disposables in King County,recycling,"rails, javascript",https://github.com/audreycarlsen/recycling_app,www.wdidw.com,live/ongoing,Audrey Carlsen,,4/24/2014,Capstone project for Ada Developers Academy
+"""The Hood Ain't The Same"" mapping of change in the Central District to the Draze music vid.",,,,https://docs.google.com/spreadsheet/ccc?key=0AiQOWflhaV6bdDFOS3FuSU5CS3lZQnNTVW4tQVp1cEE&usp=sharing,,in progress,,,,

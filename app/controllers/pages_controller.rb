@@ -6,7 +6,4 @@ class PagesController < ApplicationController
       render 'pages/home'
     end
   end
-
-  def docs
-  end
 end

@@ -1,7 +1,6 @@
 Flatsheet::Application.routes.draw do
 
   root 'pages#home'
-  get 'documentation' => 'pages#docs'
 
   scope 'api/v1' do
     resources :sheets, :defaults => { :format => 'json' } do 

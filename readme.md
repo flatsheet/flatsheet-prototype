@@ -11,14 +11,17 @@ Have you ever used Google Spreadsheets with something like Tabletop.js to create
 
 Flatsheet is meant to solve that problem more effectively.
 
-Flatsheet is a tool for managing tabular data with a friendly editor and a simple JSON API. The editor allows the creation of rows and columns of data, similar to a spreadsheet. The JSON API exposes that data so it can be easily utilized by websites and applications.
+Any time a human needs to edit a dataset regularly and that dataset needs to be exposed as a JSON API, Flatsheet can be your friend. Because a lot of times a full CMS for content like that is overkill, Google Spreadsheets might rate-limit your production app if traffic is big, and the Flatsheet API can be one of the small services in your Service-Oriented Architecture.
 
-The current goals are to improve the editor UI to create the simplest possible editing experience, to create integrations with other tools, like syncing with Google Spreadsheets and dat, and to allow group collaboration on a dataset through the UI.
+Flatsheet is a tool for managing tabular data with a friendly editor and a simple JSON API. The editor allows the creation of rows and columns of data, similar to a spreadsheet. The JSON API exposes that data so it can be easily utilized by websites and applications.
 
 The prototype users Rails, Postgresql, Backbone, and modules from npm.
 
-
 ## What happens next?
+
+The current goals are to improve the editor UI to create the simplest possible editing experience, to create integrations with other tools, like syncing with Google Spreadsheets and dat, and to allow group collaboration on a dataset through the UI.
+
+**Also:**
 
 Conducting user testing with the existing proof of concept version of the project, and iteratively creating new versions of flatsheet based on what's learned from each round of user testing.
 

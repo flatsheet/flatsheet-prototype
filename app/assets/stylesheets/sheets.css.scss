@@ -233,7 +233,7 @@ header ul.main-nav {
   table { padding-top: 60px; }
 
   th > div.small {
-    width: 200px;
+    width: 186px;
     margin: 3px 0px 2px 0px;
   }
 
@@ -256,25 +256,27 @@ header ul.main-nav {
   }
 
   td > input {
-    padding: 5px 8px;
+    padding: 3px 5px;
     border: 1px solid #efefef;
     width: 160px;
     display: inline-block;
     margin: 0px;
+    font-size: 13px;
   }
 
   td > span.expand {
     background-color: #efefec;
     display: inline-block;
-    width: 31px;
-    height: 31px;
+    width: 25px;
+    height: 25px;
     cursor: pointer;
     margin: 0px;
     vertical-align: top;
 
     i { 
-      padding: 8px;
+      padding: 7px;
       color: #646462;
+      font-size: 12px;
     }
   }
 
@@ -405,6 +407,12 @@ a.button.get-started {
       text-decoration: none;
     }
   }
+}
+
+footer {
+  margin-top: 30px;
+  padding: 40px 0px;
+  border-top: 1px solid #f2f2f0;
 }
 
 

@@ -108,11 +108,15 @@ var SheetDetailView = Backbone.View.extend({
   events: {
     'click .save': 'save',
     'click .add-row': 'addRow',
+    'click .delete-row': 'deleteRow',
     'click .expand': 'expand'
   },
 
   save: function(e){
     if (e) e.preventDefault();
+
+    var saveBtn = $('a.save');
+    saveBtn.text('Saving');
 
     var attrs = {
       name: $('.sheet-name').val(),
@@ -122,6 +126,10 @@ var SheetDetailView = Backbone.View.extend({
 
     var opts = {
       success: function(model){
+        setTimeout(function(){
+          saveBtn.text('Save');
+        }, 400); 
+
         if (location.hash == '#new') location.hash = '#' + model.get('slug');
       }
     };
@@ -139,7 +147,28 @@ var SheetDetailView = Backbone.View.extend({
     this.model.set({ rows: rows });
     this.renderRows();
 
+    var $row = $('.sheet-rows tbody tr:last');
+
+    $('html, body').animate({
+      scrollTop: $row.offset().top
+    }, 1000);
+
     return false;
+  },
+
+  deleteRow: function(e){
+    if (confirm('Are you sure you want to delete this row?')){
+      var rows = this.model.get('rows');
+      var $rowEls = $('.sheet-rows tbody tr');
+      var $button = $(e.target);
+      var i = $button.parent().index();
+      console.log(i)
+      $rowEls[i].remove();
+      rows.splice(i, 1);
+      $button.parent().remove();
+      this.model.set({ rows: rows });
+      this.save();      
+    }
   },
 
   expand: function(e){
@@ -167,8 +196,9 @@ var SheetDetailView = Backbone.View.extend({
           })
       );
 
-    $('.controls').append('<a href="#" class="add-row button">New row</a>');
-    $('.controls').append('<a href="#" class="save button">Save</a>');
+    for (var i=0; i<rows.length; i++) {
+      $('.sheet-row-controls ul').append('<li><i class="fa fa-times delete-row"></i></li>');
+    }
 
     if (this.model.get('slug')){
       var endpoint = document.createElement('a');
@@ -216,7 +246,7 @@ var CellEditor = Backbone.View.extend({
     this.inputEl.addEventListener('change', function (e) {}, false);
     this.inputEl.dispatchEvent(event);
     this.detailView.save();
-
+    this.detailView.renderRows();
     this.$el.remove();
   },
 
@@ -1923,6 +1953,16 @@ function metatable(d3) {
                             paint();
                         }
                     });
+
+                var rowbutton = controls.append('a')
+                    .text('New row')
+                    .attr('href', '#')
+                    .attr('class', 'button icon plus add-row');
+
+                var savebutton = controls.append('a')
+                    .text('Save')
+                    .attr('href', '#')
+                    .attr('class', 'button icon plus save');
 
                 var enter = sel.selectAll('table').data([d]).enter().append('table');
                 var thead = enter.append('thead');

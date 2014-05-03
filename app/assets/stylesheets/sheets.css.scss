@@ -208,9 +208,25 @@ header ul.main-nav {
   clear: right;
 }
 
+.sheet-row-controls {
+  float: left;
+  width: 21px;
+  height: 500px;
+  margin-top: 141px;
+
+  ul {
+    margin: 0px;
+    padding: 0px;
+
+    li {
+      list-style-type: none;
+      margin-bottom: 5px;
+    }
+  }
+}
+
 .sheet-rows {
   padding-top: 30px;
-  clear:both;
   overflow-x: auto;
 
   .controls {
@@ -340,6 +356,20 @@ input.sheet-name {
   border-bottom: 1px solid #f2f2f0;
   padding-bottom: 8px;
   margin-bottom: 12px;
+}
+
+.delete-row {
+  cursor: pointer;
+  background-color: #efefec;
+  color: #646462;
+  font-size: 12px;
+  padding: 6px;
+}
+
+.delete-row:hover {
+  cursor: pointer;
+  background-color: #dfdfdc;
+  color: #000;
 }
 
 .landing {

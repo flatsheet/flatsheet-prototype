@@ -195,6 +195,7 @@ var SheetDetailView = Backbone.View.extend({
           })
       );
 
+    $('.sheet-row-controls ul').html('');
     for (var i=0; i<rows.length; i++) {
       $('.sheet-row-controls ul').append('<li><i class="fa fa-times delete-row"></i></li>');
     }

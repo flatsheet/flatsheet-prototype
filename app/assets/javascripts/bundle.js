@@ -17,7 +17,6 @@ Backbone.sync = function(method, model, options) {
     beforeSend: function(xhr) {
       var token = $('meta[name="csrf-token"]').attr('content');
       if (token) xhr.setRequestHeader('X-CSRF-Token', token);
-      //xhr.setRequestHeader('Authorization', 'Token token=96aa062b2cc8d494aea477cd2f520c7e');
     }
   }, options)
   return Backbone.old_sync(method, model, new_options);
@@ -101,15 +100,23 @@ var SheetDetailView = Backbone.View.extend({
       data: $.param({ id: this.id }),
       success: function(a, b){
         self.render();
+        console.log(a, b)
       }
     });
   },
 
   events: {
+    'click .sheet-public-view': 'check',
     'click .save': 'save',
     'click .add-row': 'addRow',
     'click .delete-row': 'deleteRow',
     'click .expand': 'expand'
+  },
+
+  check: function(e){
+    var checked = $(e.currentTarget).prop('checked');
+    this.model.set('public_view', checked);
+    this.save();
   },
 
   save: function(e){
@@ -285,8 +292,15 @@ var Router = Backbone.Router.extend({
 });
 
 $(function(){
-  var app = new Router();
-  Backbone.history.start();
+  var slug = window.location.pathname.split('/sheet/')[1];
+  if (slug) {
+    new SheetDetailView({
+      model: new Sheet({ slug: slug })
+    });
+  } else {
+    var app = new Router();
+    Backbone.history.start();
+  }
 });
 
 },{"backbone":2,"d3":4,"d3-metatable":3,"underscore":5}],2:[function(require,module,exports){

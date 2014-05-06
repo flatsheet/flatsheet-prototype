@@ -1,6 +1,8 @@
 Flatsheet::Application.routes.draw do
 
   root 'pages#home'
+  get 'sheet', to: redirect('/')
+  get 'sheet/:id' => 'sheets#sheet', as: 'sheet_detail'
 
   scope 'api/v1' do
     resources :sheets, :defaults => { :format => 'json' } do 

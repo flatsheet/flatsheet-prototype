@@ -10,7 +10,19 @@ class SheetsController < ApplicationController
 
   # GET /sheets/:id
   def show
-    @sheet = Sheet.friendly.find(params[:id]) 
+    @sheet = Sheet.friendly.find(params[:id])
+    if params[:query]
+      q = params[:query]
+    end
+  end
+
+  def sheet
+    sheet = Sheet.friendly.find(params[:id]) 
+    if sheet.public_view || current_user == sheet.user
+      @sheet = sheet
+    else
+      redirect_to root_url
+    end
   end
 
   # POST /import-file
@@ -99,6 +111,6 @@ class SheetsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def sheet_params
-      params.require(:sheet).permit(:name, :description, :rows)
+      params.require(:sheet).permit(:name, :description, :rows, :public_edit, :public_view)
     end
 end

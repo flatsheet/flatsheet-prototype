@@ -15,6 +15,7 @@ gem 'devise'
 gem 'rails_admin'
 gem 'friendly_id', '~> 5.0.0'
 
+gem 'siren'
 gem 'jbuilder', '~> 1.2'
 gem 'rack-cors', :require => 'rack/cors'
 

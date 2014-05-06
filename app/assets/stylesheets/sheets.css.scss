@@ -231,6 +231,7 @@ header ul.main-nav {
 
   .controls {
     margin-bottom: 20px;
+    margin-left: -21px;
     background-color: #f6f6f5;
     position: absolute;
     width: 90%;
@@ -402,6 +403,11 @@ a.button.get-started {
   line-height: 80px;
   padding: 20px 30px;
   font-size: 25px;
+}
+
+.public-view-notice {
+  background-color: #fcfcf4;
+  padding: 15px 20px;
 }
 
 .docs {

@@ -1,0 +1,32 @@
+<% if @sheet.public_view %>
+  <% if !current_user || current_user != @sheet.user %>
+    <div class="public-view-notice">This sheet is publicly viewable. No changes you make will be saved.</div>
+  <% end %>
+<% end %>
+
+<div id="main">
+
+</div>
+
+<script id="sheet-detail-template" type="text/template">
+  <div class="sheet-detail">
+    <div class="sheet-meta">
+      <input class="sheet-name" type="text" value="{{= sheet.name }}"><br>
+      <textarea class="sheet-description">{{= sheet.description }}</textarea><br>
+      <label>
+        <input type="checkbox" name="public_view" class="sheet-public-view" {{ if (sheet.public_view) { }}checked="checked"{{ } }}>
+        Publicly Viewable?
+      </label>
+    </div>
+  </div>
+  <div class="sheet-row-controls"><ul></li></div>
+  <div class="sheet-rows"></div>
+</script>
+
+<script id="cell-editor-template" type="text/template">
+  <div class="editor-inner-wrapper">
+    <h2>{{= field }}</h2>
+    <textarea id="textarea" rows=10>{{= text }}</textarea>
+    <button class="button update"><i class="fa fa-compress"></i> Update</button>
+  </div>
+</script>

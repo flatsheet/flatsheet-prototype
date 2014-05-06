@@ -22,7 +22,6 @@
       <% end %>
       <li><a href="http://flatsheet.io/docs">documentation</a></li>
       <% if user_signed_in? %>
-        <li><a href="/#new">new sheet</a></li>
         <li>
         <%= link_to('sign out', destroy_user_session_path, :method => :delete) %>        
         </li>

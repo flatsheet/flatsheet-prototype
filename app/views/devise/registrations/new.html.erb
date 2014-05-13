@@ -20,6 +20,11 @@
       <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: 'password confirmation' %>
     </div>
 
+    <div class="field" style="margin-top:10px;">
+      <%= f.check_box :newsletter, checked: true %><%= f.label :newsletter, 'Get email updates' %>
+      <br><i style="font-size:11px">(Important for getting notifications about new/revised features)</i>
+    </div>
+
     <div><%= f.submit "Sign up" %></div>
   <% end %>
 

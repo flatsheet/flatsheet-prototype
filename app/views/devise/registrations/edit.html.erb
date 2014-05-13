@@ -28,12 +28,16 @@
     <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
       <%= f.password_field :current_password, autocomplete: "off" %></div>
 
+    <div class="field" style="margin-top:10px;">
+      <%= f.check_box :newsletter %><%= f.label :newsletter, 'Get email updates' %>
+      <br><i style="font-size:11px">(Important for getting notifications about new/revised features)</i>
+    </div>
+
     <div><%= f.submit "Update" %></div>
   <% end %>
 
-  <h3>Cancel my account</h3>
+  <h3 style="margin-top: 100px;">Delete my account</h3>
 
-  <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+  <%= button_to "Delete my account", registration_path(resource_name), data: { confirm: "Are you sure? This will delete your account and any sheets you've created." }, method: :delete %>
 
-  <%= link_to "Back", :back %>
 </div>

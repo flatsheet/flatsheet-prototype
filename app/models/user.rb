@@ -13,6 +13,10 @@ class User < ActiveRecord::Base
     self['admin']
   end
 
+  def should_generate_new_friendly_id?
+    true
+  end
+
   private
     def set_api_key
       return if self.api_key.present?
